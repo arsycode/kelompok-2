@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2022 at 05:18 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 01, 2022 at 10:51 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,7 +39,8 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`kd_dosen`, `nama_dosen`, `email`, `no_telp`) VALUES
-('11', 'qq', 'riyadi.muttaqin2701@gmail.com', '+62895343211867');
+('1', 'qqss', 'dummy@mail.com', '78'),
+('11', 'qqWW', 'admin@mail.com', '08765879');
 
 -- --------------------------------------------------------
 
@@ -58,7 +59,8 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`npm`, `nama`, `alamat`) VALUES
-('12', 'Kikin', 'Bandung');
+('12', 'Kikin', 'Bandung'),
+('1212', 'Lake', 'a');
 
 -- --------------------------------------------------------
 
@@ -86,6 +88,7 @@ INSERT INTO `matakuliah` (`kd_mk`, `nama_mk`, `sks`) VALUES
 --
 
 CREATE TABLE `nilai` (
+  `id_nilai` bigint(20) NOT NULL,
   `npm` varchar(10) NOT NULL,
   `kd_dosen` varchar(10) NOT NULL,
   `kd_mk` varchar(10) NOT NULL,
@@ -99,8 +102,9 @@ CREATE TABLE `nilai` (
 -- Dumping data for table `nilai`
 --
 
-INSERT INTO `nilai` (`npm`, `kd_dosen`, `kd_mk`, `nhadir`, `ntugas`, `uts`, `uas`) VALUES
-('12', '11', '123', '5', '5', '5', '5');
+INSERT INTO `nilai` (`id_nilai`, `npm`, `kd_dosen`, `kd_mk`, `nhadir`, `ntugas`, `uts`, `uas`) VALUES
+(1, '12', '1', '123', '5', '5', '5', '5'),
+(2, '12', '11', '123', '90', '100', '90', '90');
 
 -- --------------------------------------------------------
 
@@ -148,6 +152,7 @@ ALTER TABLE `matakuliah`
 -- Indexes for table `nilai`
 --
 ALTER TABLE `nilai`
+  ADD PRIMARY KEY (`id_nilai`),
   ADD KEY `npm` (`npm`),
   ADD KEY `kd_dosen` (`kd_dosen`),
   ADD KEY `kd_mk` (`kd_mk`);
@@ -161,6 +166,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `nilai`
+--
+ALTER TABLE `nilai`
+  MODIFY `id_nilai` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
