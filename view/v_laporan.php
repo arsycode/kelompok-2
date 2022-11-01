@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-  <title>Arsha Bootstrap Template - Index</title>
+  <title>Kelompok 2 | Laporan Nilai</title>
   <meta content="" name="description" />
   <meta content="" name="keywords" />
 
@@ -39,7 +39,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="home.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="home.html">Home</a></li>
           <li class="dropdown">
             <a href="#">
               <span>Tampil Data</span>
@@ -52,7 +52,7 @@
               <li><a href="info/nilai.php">Nilai</a></li>
             </ul>
           </li>
-          <li><a class="nav-link" href="laporan.html">Laporan</a></li>
+          <li><a class="nav-link active" href="laporan.html">Laporan</a></li>
           <li>
             <a class="getstarted" href="about.html">About</a>
           </li>
@@ -95,15 +95,25 @@
                 </tr>
               </thead>
               <tbody>
-                <td>1</td>
-                <td>2121212</td>
-                <td>Dio Brando</td>
-                <td>Database Fundamental</td>
-                <td>14</td>
-                <td>90</td>
-                <td>89</td>
-                <td>95</td>
-                <td>98</td>
+                <?php
+                $i = 1; 
+                  foreach ($data as $item) {
+                    ?>
+                <tr>
+                  <td><?= $i ?></td>
+                  <td><?= $item['npm'] ?></td>
+                  <td><?= $item['nama'] ?></td>
+                  <td><?= $item['nama_mk'] ?></td>
+                  <td><?= $item['nhadir'] ?></td>
+                  <td><?= $item['ntugas'] ?></td>
+                  <td><?= $item['uts'] ?></td>
+                  <td><?= $item['uas'] ?></td>
+                  <td><?= ($item['nhadir']+$item['ntugas']+$item['uts']+$item['uas'])/4 ?></td>
+                </tr>
+                <?php
+                $i++;
+                  }
+                ?>
               </tbody>
             </table>
           </div>

@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "lib/koneksi.php";
 							
 $npm = $_POST["npm"];
 $kd_dosen = $_POST["kd_dosen"];
@@ -9,5 +9,5 @@ $ntugas = $_POST["ntugas"];
 $uts = $_POST["uts"];
 $uas = $_POST["uas"];
 mysqli_query($konek,"insert into nilai values ('$npm','$kd_dosen','$kd_mk','$nhadir','$ntugas','$uts','$uas')");
-header("location:formnilai.php");
+header("location:nilai.php");
 ?>
